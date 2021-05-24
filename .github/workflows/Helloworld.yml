@@ -1,37 +1,39 @@
-# This is a basic workflow to help you get started with Actions
+name: Hello_World
 
-name: Hello World
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
- Jobs1: 
-  Name: Maquina Linux
-  build:
+  job1:
+    name: Maquina Linux
     runs-on: ubuntu-latest
-    Jobs2: 
-     Name: Maquina Windows
-      build:
-       runs-on: windows-latest
-        Jobs3: 
-         Name: Maquina Macos
-          build:
-           runs-on: macos-latest
-            steps:
-             - uses: actions/checkout@v2
-      
-              - name: Run a one-line script
-                run: echo Hello, world!
+
+    steps:
+      - name: Passo 1
+        run: env | sort
+  
+  job2:
+    name: Maquina Windows
+    runs-on: windows-latest
+    steps:
+      - name: Passo 1
+        run: "Get-ChildItem Env: | Sort-Object Name"
         
-                 - name: Run a multi-line script
-                   run: date
+        jobs:
+  job3:
+    name: Maquina Macos
+    runs-on: macos-latest
+        
+  job4:
+    name: Quarto job
+    runs-on: ubuntu-latest
+    needs: [job1, job2, job3 ]
+    
+    steps:
+      - name: Ultimo passo
+        run: echo Passo final
