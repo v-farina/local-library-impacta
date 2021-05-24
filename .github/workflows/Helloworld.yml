@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Passo 2
-        run: "Get-ChildItem Env: | Sort-Object Name"
+        run: env | sort
         
   job3:
     name: Maquina Macos
