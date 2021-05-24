@@ -24,7 +24,6 @@ jobs:
       - name: Passo 2
         run: "Get-ChildItem Env: | Sort-Object Name"
         
-        jobs:
   job3:
     name: Maquina Macos
     runs-on: macos-latest
