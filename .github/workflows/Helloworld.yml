@@ -21,13 +21,16 @@ jobs:
     name: Maquina Windows
     runs-on: windows-latest
     steps:
-      - name: Passo 1
+      - name: Passo 2
         run: "Get-ChildItem Env: | Sort-Object Name"
         
         jobs:
   job3:
     name: Maquina Macos
     runs-on: macos-latest
+    steps:
+      - name: Passo 3
+        run: env | sort
         
   job4:
     name: Quarto job
