@@ -16,14 +16,16 @@ jobs:
     steps:
       - name: Passo 1
         run: env | sort
-         
+         steps:
+         - name : Data
+           run: date
   job2:
     name: Maquina Windows
     runs-on: windows-latest
     steps:
       - name: Passo 2
         run: env | sort
-         run: date
+        run: date
         
   job3:
     name: Maquina Macos
