@@ -15,29 +15,25 @@ jobs:
 
     steps:
       - name: Passo 1
-        run: env | sort
-        env: date
+        run: date
   job2:
     name: Maquina Windows
     runs-on: windows-latest
     steps:
       - name: Passo 2
-        run: env | sort
-        env: date
-        
+        run: date
+                
   job3:
     name: Maquina Macos
     runs-on: macos-latest
     steps:
       - name: Passo 3
-        run: env | sort
-        env: date
-        
+        run: date
   job4:
     name: Quarto job
     runs-on: ubuntu-latest
     needs: [job1, job2, job3 ]
-    env: date
+    run: date
     
     steps:
       - name: Ultimo passo
